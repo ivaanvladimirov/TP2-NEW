@@ -18,7 +18,6 @@ public class SpeciesTableModel extends AbstractTableModel implements EcoSysObser
     private List<List<Object>> _data;
 
     SpeciesTableModel(Controller ctrl) {
-        // TODO initialise the corresponding data structures
         _ctrl = ctrl;
         _data = new ArrayList<>();
         _animals = new ArrayList<>();
@@ -29,7 +28,6 @@ public class SpeciesTableModel extends AbstractTableModel implements EcoSysObser
         for (Animal.State state : Animal.State.values() ) {     // header row reading the enum class
             _columns.add(state.toString());
         }
-
         updateData();
     }
 
@@ -55,17 +53,23 @@ public class SpeciesTableModel extends AbstractTableModel implements EcoSysObser
 
     @Override
     public void onRegister(double time, MapInfo map, List<AnimalInfo> animals) {
-
+        _animals = animals;
+        updateData();
+        fireTableDataChanged();
     }
 
     @Override
     public void onReset(double time, MapInfo map, List<AnimalInfo> animals) {
-
+        _animals = animals;
+        updateData();
+        fireTableDataChanged();
     }
 
     @Override
     public void onAnimalAdded(double time, MapInfo map, List<AnimalInfo> animals, AnimalInfo a) {
-
+        _animals = animals;
+        updateData();
+        fireTableDataChanged();
     }
 
     @Override
@@ -92,7 +96,6 @@ public class SpeciesTableModel extends AbstractTableModel implements EcoSysObser
 
     private void updateData() {
         _data.clear();
-
         Map<String, Map<Animal.State, Integer>> speciesStateCounts = new HashMap<>();
 
         // Initialize

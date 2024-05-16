@@ -26,6 +26,7 @@ public class RegionsTableModel extends AbstractTableModel implements EcoSysObser
         for (Diet diet : Diet.values()) {
             _columns.add(diet.toString());
         }
+
     }
     @Override
     public int getRowCount() {
@@ -56,28 +57,35 @@ public class RegionsTableModel extends AbstractTableModel implements EcoSysObser
 
     @Override
     public void onRegister(double time, MapInfo map, List<AnimalInfo> animals) {
+        _mapInfo = map;
+        updateData();
+        fireTableDataChanged();
     }
 
     @Override
     public void onReset(double time, MapInfo map, List<AnimalInfo> animals) {
+        _mapInfo = map;
+        updateData();
+        fireTableDataChanged();
 
     }
 
     @Override
     public void onAnimalAdded(double time, MapInfo map, List<AnimalInfo> animals, AnimalInfo a) {
-
-
+        _mapInfo = map;
+        updateData();
+        fireTableDataChanged();
     }
 
     @Override
     public void onRegionSet(int row, int col, MapInfo map, RegionInfo r) {
-
-
+        _mapInfo = map;
+        updateData();
+        fireTableDataChanged();
     }
 
     @Override
     public void open(Component parent) {
-
 
     }
 
@@ -88,16 +96,20 @@ public class RegionsTableModel extends AbstractTableModel implements EcoSysObser
         fireTableDataChanged();
     }
 
+    /**
+     * Updates the data in the table model.
+     */
     private void updateData() {
         _data.clear();
+        Iterator<MapInfo.RegionData> iterator = _mapInfo.iterator();
 
-        for (MapInfo.RegionData regionData : _mapInfo) {
+        while(iterator.hasNext()){
             List<Object> rowData = new ArrayList<>();
+            MapInfo.RegionData regionData = iterator.next();
             rowData.add(regionData.row());
             rowData.add(regionData.col());
             rowData.add(regionData.r().toString());
 
-            // Initialize
             Map<Diet, Integer> dietCounts = new HashMap<>();
             for (Diet diet : Diet.values()) {
                 dietCounts.put(diet, 0);
@@ -120,5 +132,6 @@ public class RegionsTableModel extends AbstractTableModel implements EcoSysObser
 
             _data.add(rowData);
         }
+
     }
 }

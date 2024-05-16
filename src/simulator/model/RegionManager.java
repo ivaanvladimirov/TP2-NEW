@@ -284,7 +284,7 @@ public class RegionManager implements AnimalMapView, Iterable<MapInfo.RegionData
             return regionData;
         }
     }
-    @Override
+
     public Iterator<MapInfo.RegionData> iterator() {
         return new RegionManagerIterator();
     }
