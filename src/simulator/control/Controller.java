@@ -51,11 +51,11 @@ public class Controller {
             if(rowArray != null && colArray != null){
                 int startRow = rowArray.getInt(0);
                 int endRow = rowArray.getInt(1);
-                int startCol = rowArray.getInt(0);
-                int endCol = rowArray.getInt(1);
+                int startCol = colArray.getInt(0);
+                int endCol = colArray.getInt(1);
 
-                for (int j = startRow; j < endRow; j++) {
-                    for (int k = startCol; k < endCol; k++) {
+                for (int j = startRow; j <= endRow; j++) {
+                    for (int k = startCol; k <= endCol; k++) {
                         _sim.set_region(j, k, spec);
                     }
                 }

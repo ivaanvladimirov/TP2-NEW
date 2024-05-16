@@ -36,7 +36,6 @@ public class RegionManager implements AnimalMapView, Iterable<MapInfo.RegionData
         this._region_height = height / rows;
         this._animal_region = new HashMap<>();
 
-
         for (int i = 0; i < _rows; i++) {
             for (int j = 0; j < _cols; j++) {
                 _regions[i][j] = new DefaultRegion();
@@ -268,6 +267,7 @@ public class RegionManager implements AnimalMapView, Iterable<MapInfo.RegionData
     private class RegionManagerIterator implements Iterator<MapInfo.RegionData> {
         private int row = 0;
         private int col = 0;
+
         @Override
         public boolean hasNext() {
             return row < _rows && col < _cols;
