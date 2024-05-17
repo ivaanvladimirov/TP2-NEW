@@ -4,7 +4,7 @@ import simulator.misc.Utils;
 import simulator.misc.Vector2D;
 
 public class Wolf extends Animal {
-    private SelectionStrategy _hunting_strategy;
+    private final SelectionStrategy _hunting_strategy;
     private Animal _hunt_target;
     private static final double _wolfSightRange = 50.0;
     private static final double _wolfSpeed = 60.0;

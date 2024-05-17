@@ -8,7 +8,7 @@ import simulator.model.*;
  * Builder for the Sheep class object.
  */
 public class SheepBuilder extends Builder<Animal> {
-    private Factory<SelectionStrategy> _strategy;
+    private final Factory<SelectionStrategy> _strategy;
     private SelectionStrategy mateStrategy;
     private SelectionStrategy dangerStrategy;
 

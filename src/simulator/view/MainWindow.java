@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainWindow extends JFrame {
-    private Controller _ctrl;
+    private final Controller _ctrl;
 
     public MainWindow(Controller ctrl) {
         super("[ECOSYSTEM SIMULATOR]");

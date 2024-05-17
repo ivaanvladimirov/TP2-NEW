@@ -6,7 +6,7 @@ import simulator.misc.Vector2D;
 public class Sheep extends Animal {
 
     private Animal _danger_source;
-    private SelectionStrategy _danger_strategy;
+    private final SelectionStrategy _danger_strategy;
 
     /**
      * Constructor for the Sheep class

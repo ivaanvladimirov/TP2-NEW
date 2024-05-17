@@ -12,8 +12,8 @@ public class EventsTableModel extends AbstractTableModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private List<EventEx> _events;
-	private String[] _colNames = { "#", "Time", "Priority" };
+	private final List<EventEx> _events;
+	private final String[] _colNames = { "#", "Time", "Priority" };
 
 	public EventsTableModel() {
 		_events = new ArrayList<>();
@@ -31,8 +31,7 @@ public class EventsTableModel extends AbstractTableModel {
 
 	public void reset() {
 		_events.clear();
-		;
-		fireTableDataChanged();
+        fireTableDataChanged();
 	}
 
 	@Override

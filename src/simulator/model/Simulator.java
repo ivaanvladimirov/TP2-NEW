@@ -10,12 +10,12 @@ import java.util.List;
 
 public class Simulator implements Observable<EcoSysObserver>, JSONable {
 
-    private Factory<Animal> animalsFactory;
-    private Factory<Region> regionsFactory;
+    private final Factory<Animal> animalsFactory;
+    private final Factory<Region> regionsFactory;
     private RegionManager regionManager;
-    private List<Animal> animals;
+    private final List<Animal> animals;
     private double currentTime;
-    private List<EcoSysObserver> observers;
+    private final List<EcoSysObserver> observers;
 
     /**
      * Constructor for the Simulator class

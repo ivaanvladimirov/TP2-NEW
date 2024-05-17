@@ -22,8 +22,8 @@ class JSONBuilderDialog extends JDialog {
 
 	private int _status;
 	private DefaultTableModel _dataTableModel;
-	private String[] _header = { "Key", "Value" };
-	private String[][] _jsonSrc = { //
+	private final String[] _header = { "Key", "Value" };
+	private final String[][] _jsonSrc = { //
 			{ "name", "age", "weight" }, //
 			{ "city", "country" }, //
 			{ "team", "points", "game", "value" } //

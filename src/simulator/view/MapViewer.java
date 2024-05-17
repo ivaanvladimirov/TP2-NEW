@@ -34,7 +34,7 @@ public class MapViewer extends AbstractMapViewer{
 
 	private static class SpeciesInfo {
 		private Integer _count;
-		private Color _color;
+		private final Color _color;
 
 		SpeciesInfo(Color color) {
 			_count = 0;
@@ -44,7 +44,7 @@ public class MapViewer extends AbstractMapViewer{
 
 	Map<String, SpeciesInfo> _kindsInfo = new HashMap<>();
 
-	private Font _font = new Font("Arial", Font.BOLD, 12);
+	private final Font _font = new Font("Arial", Font.BOLD, 12);
 
 	private boolean _showHelp;
 

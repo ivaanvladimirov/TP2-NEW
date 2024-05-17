@@ -34,7 +34,7 @@ public class MainWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Border _defaultBorder = BorderFactory.createLineBorder(Color.red, 1);
+	private final Border _defaultBorder = BorderFactory.createLineBorder(Color.red, 1);
 	private EventsTableModel _model;
 
 	private JSpinner _time;
@@ -110,7 +110,7 @@ public class MainWindow extends JFrame {
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog( //
-					(Frame) SwingUtilities.getWindowAncestor(this), //
+                    SwingUtilities.getWindowAncestor(this), //
 					"Something went wrong ...", "ERROR", //
 					JOptionPane.ERROR_MESSAGE);
 		}

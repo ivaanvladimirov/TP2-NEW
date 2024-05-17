@@ -1,7 +1,7 @@
 package extra.jdialog.ex1;
 
 public class Dish {
-	private String _name;
+	private final String _name;
 
 	Dish(String name) {
 		_name = name;

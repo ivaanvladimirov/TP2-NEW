@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 public class ControlPanel extends JPanel {
-    private Controller _ctrl;
+    private final Controller _ctrl;
     private ChangeRegionsDialog _changeRegionsDialog;
     private JToolBar _toolBar;
     private JFileChooser _fc;
@@ -23,7 +23,7 @@ public class ControlPanel extends JPanel {
     private JButton _regionsButton;
     private JButton _runButton;
     private JButton _stopButton;
-    private JSpinner _stepsSpinner = new JSpinner(new SpinnerNumberModel(10000, 1, 100000000, 1));
+    private final JSpinner _stepsSpinner = new JSpinner(new SpinnerNumberModel(10000, 1, 100000000, 1));
     private JTextField _deltaTimeField;
     private MapViewer _mapViewer;
 
@@ -84,13 +84,23 @@ public class ControlPanel extends JPanel {
         // Steps Spinner
         _toolBar.add(new JLabel("Steps:"));
         _toolBar.addSeparator();
+
+        Dimension fixedSize2 = new Dimension(70, 25);
+        _stepsSpinner.setPreferredSize(fixedSize2);
+        _stepsSpinner.setMaximumSize(fixedSize2);
+        _stepsSpinner.setMinimumSize(fixedSize2);
         _toolBar.add(_stepsSpinner);
+
         _toolBar.addSeparator();
 
 
         // Delta Time Field
         _deltaTimeField = new JTextField();
-        _deltaTimeField.setPreferredSize(new Dimension(70, 50));
+        Dimension fixedSize = new Dimension(70, 25);
+        _deltaTimeField.setPreferredSize(fixedSize);
+        _deltaTimeField.setMaximumSize(fixedSize);
+        _deltaTimeField.setMinimumSize(fixedSize);
+
         _deltaTimeField.setToolTipText("Delta Time");
         _deltaTimeField.setText(String.valueOf(Main._dt));
         _toolBar.add(new JLabel("Delta-Time:"));

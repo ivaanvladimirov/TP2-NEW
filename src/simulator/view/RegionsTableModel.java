@@ -9,10 +9,10 @@ import java.util.List;
 
 public class RegionsTableModel extends AbstractTableModel implements EcoSysObserver {
     private static final long serialVersionUID = 1L;
-    private Controller _ctrl;
+    private final Controller _ctrl;
     private MapInfo _mapInfo;
-    private List<String> _columns;
-    private List<List<Object>> _data;
+    private final List<String> _columns;
+    private final List<List<Object>> _data;
 
     RegionsTableModel(Controller ctrl) {
         _ctrl = ctrl;

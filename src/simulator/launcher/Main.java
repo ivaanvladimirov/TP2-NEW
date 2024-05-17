@@ -1,4 +1,9 @@
 package simulator.launcher;
+/**
+ * run configs:
+ * -m gui -dt (any number) or without any argument.
+ * -m batch -i resources/examples/ex1.json -o resources/tmp/myout.json -t 60.0 -dt 0.03 -sv
+ */
 
 import org.apache.commons.cli.*;
 import org.json.JSONObject;
@@ -19,7 +24,7 @@ import java.util.List;
  */
 public class Main {
     private static final String _out_file = null;
-    private static final ExecMode _mode = ExecMode.GUI;
+    private static ExecMode _mode = ExecMode.GUI;
     public static Factory<Animal> animal_factory;
     public static Factory<Region> region_factory;
     public static Factory<SelectionStrategy> selection_factory;
@@ -42,6 +47,7 @@ public class Main {
         CommandLineParser parser = new DefaultParser();
         try {
             CommandLine line = parser.parse(cmdLineOptions, args);
+            parse_mode_option(line);
             parse_help_option(line, cmdLineOptions);
             parse_in_file_option(line);
             parse_time_option(line);
@@ -188,7 +194,14 @@ public class Main {
             throw new ParseException("Invalid value for time: " + t);
         }
     }
-
+    private static void parse_mode_option(CommandLine line) throws ParseException {
+        String m = line.getOptionValue("m");
+        try {
+            _mode = ExecMode.valueOf(m.toUpperCase());
+        } catch (Exception e) {
+            throw new ParseException("Invalid mode for the simulation!");
+        }
+    }
     /**
      * Initializes the factories for the simulator
      *

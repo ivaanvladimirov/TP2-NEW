@@ -14,16 +14,16 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class ChangeRegionsDialog extends JDialog implements EcoSysObserver {
-    private DefaultComboBoxModel<String> _regionsModel;
-    private DefaultComboBoxModel<String> _fromRowModel;
-    private DefaultComboBoxModel<String> _toRowModel;
-    private DefaultComboBoxModel<String> _fromColModel;
-    private DefaultComboBoxModel<String> _toColModel;
+    private final DefaultComboBoxModel<String> _regionsModel;
+    private final DefaultComboBoxModel<String> _fromRowModel;
+    private final DefaultComboBoxModel<String> _toRowModel;
+    private final DefaultComboBoxModel<String> _fromColModel;
+    private final DefaultComboBoxModel<String> _toColModel;
     private DefaultTableModel _dataTableModel;
-    private Controller _ctrl;
+    private final Controller _ctrl;
     private List<JSONObject> _regionsInfo;
     private int _status;
-    private String[] _headers = { "Key", "Value", "Description"};
+    private final String[] _headers = { "Key", "Value", "Description"};
 
     ChangeRegionsDialog(Controller ctrl) {
         super((Frame)null, true);

@@ -12,10 +12,10 @@ import java.util.Map;
 
 public class SpeciesTableModel extends AbstractTableModel implements EcoSysObserver {
     private static final long serialVersionUID = 1L;
-    private Controller _ctrl;
+    private final Controller _ctrl;
     private List<AnimalInfo> _animals;
-    private List<String> _columns;
-    private List<List<Object>> _data;
+    private final List<String> _columns;
+    private final List<List<Object>> _data;
 
     SpeciesTableModel(Controller ctrl) {
         _ctrl = ctrl;
