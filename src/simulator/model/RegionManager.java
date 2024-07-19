@@ -26,7 +26,7 @@ public class RegionManager implements AnimalMapView, Iterable<MapInfo.RegionData
      * @param width  Total width of the region
      * @param height Total height of the region
      */
-    public RegionManager(int cols, int rows, int width, int height) {
+    public RegionManager(int rows, int cols, int width, int height) {
         this._rows = rows;
         this._cols = cols;
         this._width = width;

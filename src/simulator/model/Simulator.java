@@ -27,7 +27,7 @@ public class Simulator implements Observable<EcoSysObserver>, JSONable {
      * @param animalsFactory The factory for creating animals
      * @param regionsFactory The factory for creating regions
      */
-    public Simulator(int width, int height, int cols, int rows, Factory<Animal> animalsFactory, Factory<Region> regionsFactory) {
+    public Simulator(int width, int height, int rows, int cols, Factory<Animal> animalsFactory, Factory<Region> regionsFactory) {
         this.animalsFactory = animalsFactory;
         this.regionsFactory = regionsFactory;
         this.regionManager = new RegionManager(rows, cols, width, height);
